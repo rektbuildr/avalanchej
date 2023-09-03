@@ -1,0 +1,15 @@
+/*
+ *
+ * Crypto.bi AvalancheJ - An experimental (unofficial) Java library for interacting with the Avalanche Platform
+ * Copyright (C) 2020-2023 AVAXBuildr
+ *
+ * BSD 3-Clause License
+ *
+ *
+ * For more information, visit:
+ * https://crypto.bi
+ *
+ *
+ **/
+
+rootProject.name = 'avalanchej'
