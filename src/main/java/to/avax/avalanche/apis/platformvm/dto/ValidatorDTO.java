@@ -16,8 +16,8 @@ public class ValidatorDTO {
     OwnerDTO delegationRewardOwner;
     BigInteger potentialReward;
     BigInteger accruedDelegateeReward;
-    float delegationFee;
-    float uptime;
+    double delegationFee;
+    double uptime;
     boolean connected;
     long delegatorCount;
     BigInteger delegatorWeight;
