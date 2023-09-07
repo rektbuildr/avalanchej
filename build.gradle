@@ -22,8 +22,9 @@ dependencies {
     api group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.14.1'
     api group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.2.1'
     api 'org.apache.commons:commons-math3:3.6.1'
-    testImplementation 'junit:junit:4.12'
-	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     implementation group: 'org.bitcoinj', name: 'bitcoinj-core', version: '0.16.2'
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
@@ -36,3 +37,7 @@ dependencies {
 
 sourceCompatibility = 19
 targetCompatibility = 19
+
+test {
+    useJUnitPlatform()
+}
