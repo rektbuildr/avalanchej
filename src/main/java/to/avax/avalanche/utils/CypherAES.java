@@ -25,15 +25,18 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 public class CypherAES {
-
     private final int PASS_LENGTH = 32 * 8;
-    private String pass;
-    private String encrypted;
+
+    private final static String HASHING_ALGO = "SHA-256";
+    private final static String KEY_ENCRYPTION_ALGO = "AES";
+    private final static String ENCRYPTION_ALGO = "AES/CBC/PKCS5Padding";
+
+    private final String pass;
+    private final String encrypted;
     public static SecretKey generateKey(int n) throws NoSuchAlgorithmException {
-        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ENCRYPTION_ALGO);
         keyGenerator.init(n);
-        SecretKey key = keyGenerator.generateKey();
-        return key;
+        return keyGenerator.generateKey();
     }
 
     public static String generateKeyString(int n) throws NoSuchAlgorithmException {
@@ -45,8 +48,6 @@ public class CypherAES {
         try {
             this.pass = generateKeyString(PASS_LENGTH);
             this.encrypted = encryptToString(value, this.pass);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -67,14 +68,14 @@ public class CypherAES {
         IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
 
         // Hashing key.
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.update(key.getBytes("UTF-8"));
+        MessageDigest digest = MessageDigest.getInstance(HASHING_ALGO);
+        digest.update(key.getBytes(StandardCharsets.UTF_8));
         byte[] keyBytes = new byte[16];
         System.arraycopy(digest.digest(), 0, keyBytes, 0, keyBytes.length);
-        SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, "AES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, KEY_ENCRYPTION_ALGO);
 
         // Encrypt.
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance(ENCRYPTION_ALGO);
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
         byte[] encrypted = cipher.doFinal(clean);
 
@@ -102,13 +103,13 @@ public class CypherAES {
 
         // Hash key.
         byte[] keyBytes = new byte[keySize];
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        MessageDigest md = MessageDigest.getInstance(HASHING_ALGO);
         md.update(key.getBytes());
         System.arraycopy(md.digest(), 0, keyBytes, 0, keyBytes.length);
-        SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, "AES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, KEY_ENCRYPTION_ALGO);
 
         // Decrypt.
-        Cipher cipherDecrypt = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipherDecrypt = Cipher.getInstance(ENCRYPTION_ALGO);
         cipherDecrypt.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
         byte[] decrypted = cipherDecrypt.doFinal(encryptedBytes);
 
