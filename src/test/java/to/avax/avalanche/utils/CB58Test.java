@@ -15,10 +15,10 @@
 package to.avax.avalanche.utils;
 
 import org.junit.jupiter.api.Test;
-
+import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CB58Test {
@@ -32,6 +32,6 @@ public class CB58Test {
     @Test
     void testDecode() {
         byte[] ret = CB58.decode(CB58.encode(testBuff));
-        assertEquals(testBuff, ret);
+        assertArrayEquals(testBuff, ret);
     }
 }
