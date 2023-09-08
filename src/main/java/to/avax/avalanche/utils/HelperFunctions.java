@@ -11,34 +11,27 @@
 
 package to.avax.avalanche.utils;
 
-import java.math.BigInteger;
 import java.security.SecureRandom;
 
 public class HelperFunctions {
     public static String getNetworkName(String networkId) {
-        switch (networkId) {
-            case "1":
-                return "Mainnet";
-            case "2":
-                return "Fuji";
-            case "3":
-                return "Local";
-            default:
-                return "Unknown";
-        }
+        return getNetworkName(Integer.parseInt(networkId));
     }
-
+    public static String getNetworkName(int networkId) {
+        return switch (networkId) {
+            case 1 -> "Mainnet";
+            case 2 -> "Fuji";
+            case 3 -> "Local";
+            default -> "Unknown";
+        };
+    }
     public static String getPreferredHRP(int networkID){
-            switch (networkID) {
-            case 1:
-                return "avax";
-            case 2:
-                return "fuji";
-            case 3:
-                return "local";
-            default:
-                return "unknown";
-        }
+        return switch (networkID) {
+            case 1 -> "avax";
+            case 2 -> "fuji";
+            case 3 -> "local";
+            default -> "unknown";
+        };
     }
 
     /*

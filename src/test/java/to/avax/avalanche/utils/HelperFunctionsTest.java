@@ -23,4 +23,9 @@ public class HelperFunctionsTest {
         String tst = HelperFunctions.getRandomString(STRING_LENGTH);
         assertEquals(tst.length(), STRING_LENGTH);
     }
+
+    @Test
+    void testNetworkName() {
+        assertEquals(HelperFunctions.getNetworkName(1), HelperFunctions.getNetworkName("1"));
+    }
 }
