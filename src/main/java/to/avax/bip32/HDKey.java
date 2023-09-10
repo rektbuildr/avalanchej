@@ -63,41 +63,29 @@ public class HDKey {
     public HDKey() {
        this(BITCOIN_VERSIONS);
     }
-
     public byte[] getPrivateKey() {
         return this.key.getPrivKeyBytes();
     }
     public byte[] getPublicKey() {
         return this.key.getPubKey();
     }
-
     public boolean isNeutered() {
         return false;
     }
-
-    
     public BIP32Interface neutered() {
         return null;
     }
-
-    
     public String toBase58() {
         return null;
     }
-
-    
     public String toWIF() {
         return null;
     }
-
-    
     public HDKey derive(int index) {
         HDKey h = new HDKey();
         h.key = HDKeyDerivation.deriveChildKey(this.key, new ChildNumber(index));
         return h;
     }
-
-    
     public HDKey deriveHardened(BigInteger index) {
         return null;
     }

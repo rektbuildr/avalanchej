@@ -20,4 +20,12 @@ public class Bintools {
         String addr = Bech32.encode(Bech32.Encoding.BECH32, hrp, b8t5);
         return String.format("%s-%s", chainId, addr);
     }
+    public static String bytesToHex(byte[] input) {
+        StringBuilder sb = new StringBuilder(input.length * 2);
+        for(byte b: input) {
+            sb.append(String.format("%02x", b));
+        }
+
+        return sb.toString();
+    }
 }
