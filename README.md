@@ -10,9 +10,9 @@ For more information, visit:
 
 ## Author
 
-AVAXBuildr
+REKTBuildr
 
-* https://github.com/avaxbuildr
+* https://github.com/REKTBuildr
 
 ## Notes
 

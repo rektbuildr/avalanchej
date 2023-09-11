@@ -1,7 +1,7 @@
 /*
  *
  * Crypto.bi AvalancheJ - An experimental (unofficial) Java library for interacting with the Avalanche Platform
- * Copyright (C) 2023 AVAXBuildr
+ * Copyright (C) 2023 REKTBuildr
  *
  * For more information, visit:
  * https://crypto.bi
@@ -21,10 +21,8 @@ package to.avax.avalanche.utils;
 import com.google.common.collect.Lists;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
-
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class CB58 {

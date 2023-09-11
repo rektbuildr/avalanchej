@@ -2,7 +2,7 @@ AvalancheJ - An experimental (unofficial) Java library for interacting with the 
 
 BSD 3-Clause License
 
-Copyright (C) 2023 AVAXBuildr
+Copyright (C) 2023 REKTBuildr
 All rights reserved.
 
 ---------------

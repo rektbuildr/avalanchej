@@ -1,7 +1,7 @@
 /*
  *
  * Crypto.bi AvalancheJ - An experimental (unofficial) Java library for interacting with the Avalanche Platform
- * Copyright (C) 2023 AVAXBuildr
+ * Copyright (C) 2023 REKTBuildr
  *
  *
  * For more information, visit:
@@ -25,7 +25,6 @@ import to.avax.avalanche.apis.metrics.MetricsAPI;
 import to.avax.avalanche.apis.platformvm.PlatformVMAPI;
 import to.avax.avalanche.network.AvaNetwork;
 import to.avax.avalanche.network.NetworkProtocolType;
-import java.math.BigInteger;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
