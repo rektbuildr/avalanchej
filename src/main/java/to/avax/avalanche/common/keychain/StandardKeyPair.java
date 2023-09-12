@@ -31,7 +31,7 @@ abstract public class StandardKeyPair {
      *
      * @returns true on success, false on failure
      */
-    abstract boolean importKey(byte[] privk);
+    protected abstract boolean importKey(byte[] privk);
 
     /**
      * Takes a message, signs it, and returns the signature.
@@ -40,7 +40,7 @@ abstract public class StandardKeyPair {
      *
      * @returns A {@link https://github.com/feross/buffer|Buffer} containing the signature
      */
-    abstract byte[] sign(byte[] msg);
+    protected abstract byte[] sign(byte[] msg);
 
     /**
      * Recovers the public key of a message signer from a message and its associated signature.
@@ -51,7 +51,7 @@ abstract public class StandardKeyPair {
      * @returns A {@link https://github.com/feross/buffer|Buffer} containing the public
      * key of the signer
      */
-    abstract byte[] recover(byte[] msg, byte[] sig);
+    protected abstract byte[] recover(byte[] msg, byte[] sig);
 
     /**
      * Verifies that the private key associated with the provided public key produces the
@@ -63,7 +63,7 @@ abstract public class StandardKeyPair {
      *
      * @returns True on success, false on failure
      */
-    abstract boolean verify(byte[] msg, byte[] sig, byte[] pubk);
+    protected abstract boolean verify(byte[] msg, byte[] sig, byte[] pubk);
 
     /**
      * Returns a reference to the private key.
@@ -88,30 +88,30 @@ abstract public class StandardKeyPair {
      *
      * @returns A string representation of the public key
      */
-    abstract String getPrivateKeyString();
+    protected abstract String getPrivateKeyString();
 
     /**
      * Returns the public key.
      *
      * @returns A string representation of the public key
      */
-    abstract String getPublicKeyString();
+    protected abstract String getPublicKeyString();
 
     /**
      * Returns the address.
      *
      * @returns A {@link https://github.com/feross/buffer|Buffer}  representation of the address
      */
-    abstract byte[] getAddress();
+    protected abstract byte[] getAddress();
 
     /**
      * Returns the address's string representation.
      *
      * @returns A string representation of the address
      */
-    abstract String getAddressString();
+    protected abstract String getAddressString();
 
-    abstract StandardKeyPair create(Object... args);
+    protected abstract StandardKeyPair create(Object... args);
 
     abstract protected StandardKeyPair clone();
 }

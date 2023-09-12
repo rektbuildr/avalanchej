@@ -23,7 +23,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      *
      * @returns Address of the new [[StandardKeyPair]]
      */
-    abstract KPClass makeKey();
+    protected abstract KPClass makeKey();
 
     /**
      * Given a private key, makes a new [[StandardKeyPair]], returns the address.
@@ -32,7 +32,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      *
      * @returns A new [[StandardKeyPair]]
      */
-    abstract KPClass importKey(byte[] privk);
+    protected abstract KPClass importKey(byte[] privk);
 
     /**
      * Gets an array of addresses stored in the [[StandardKeyChain]].
@@ -112,10 +112,10 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
         return this.keys.get(Bintools.bytesToHex(address));
     }
 
-    abstract StandardKeyChain create(Object ... args);
+    protected abstract StandardKeyChain create(Object... args);
 
     abstract protected StandardKeyChain clone();
 
-    abstract StandardKeyChain union(StandardKeyChain kc);
+    protected abstract StandardKeyChain union(StandardKeyChain kc);
 
 }

@@ -1,10 +1,10 @@
 package to.avax.avalanche.wallet;
 
-import to.avax.avalanche.apis.avm.AvmKeyChain;
-import to.avax.avalanche.apis.avm.AvmKeyPair;
+import to.avax.avalanche.apis.avm.keychain.KeyChain;
+import to.avax.avalanche.apis.avm.keychain.KeyPair;
 
 public interface IAvaHdWallet {
     String getMnemonic();
-    AvmKeyPair getCurrentKey();
-    AvmKeyChain getKeyChain();
+    KeyPair getCurrentKey();
+    KeyChain getKeyChain();
 }

@@ -18,4 +18,4 @@ REKTBuildr
 
 Not affiliated with Ava Labs.  
 
-This is experimental software, no guaranties/warranties offered express or implied.
+This is experimental software, no guaranties offered express or implied.

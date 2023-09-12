@@ -9,9 +9,9 @@
  *
  **/
 
-package to.avax.avalanche.apis.avm;
+package to.avax.avalanche.common.secp256k1;
 
-import to.avax.avalanche.crypto.KeyChain;
+import to.avax.avalanche.common.keychain.StandardKeyChain;
 
-public class AvmKeyChain extends KeyChain {
+public abstract class SECP256k1KeyChain<SECPKPClass extends SECP256k1KeyPair> extends StandardKeyChain<SECPKPClass> {
 }

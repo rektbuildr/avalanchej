@@ -12,12 +12,11 @@
 package to.avax.avalanche.wallet;
 
 import lombok.Data;
-import to.avax.avalanche.apis.avm.AvmKeyPair;
+import to.avax.avalanche.apis.avm.keychain.KeyPair;
 import to.avax.avalanche.crypto.KeyChain;
 import to.avax.avalanche.crypto.UTXOSet;
 import to.avax.avalanche.utils.Bintools;
 import to.avax.bip32.HDKey;
-import java.math.BigInteger;
 
 import static to.avax.avalanche.network.Network.getAvalanche;
 import static to.avax.avalanche.utils.HelperFunctions.getPreferredHRP;
@@ -33,7 +32,7 @@ public class HdHelper {
     protected int hdIndex;
     protected HDKey masterKey;
     private String changePath;
-    private AvmKeyPair avmAddrFactory;
+    private KeyPair avmAddrFactory;
     private UTXOSet utxoSet;
     private boolean isPublic;
     private boolean isFetchUtxo;
@@ -47,7 +46,7 @@ public class HdHelper {
         this.changePath = changePath;
         this.masterKey = masterKey;
         String hrp = getPreferredHRP(getAvalanche().getNetworkID());
-        this.avmAddrFactory = new AvmKeyPair(hrp, "X");
+        this.avmAddrFactory = new KeyPair(hrp, "X");
         this.isPublic = isPublic;
         this.chainId = chainId;
     }
@@ -69,7 +68,7 @@ public class HdHelper {
 
         var key = this.getHdKeyForIndex(index);
         var publicKey = key.getPublicKey();
-        var addrBuf = AvmKeyPair.addressFromPublicKey(publicKey);
+        var addrBuf = KeyPair.addressFromPublicKey(publicKey);
         var hrp = getPreferredHRP(getAvalanche().getNetworkID());
         var addr = Bintools.addressToString(hrp, this.chainId, addrBuf);
         return addr;
