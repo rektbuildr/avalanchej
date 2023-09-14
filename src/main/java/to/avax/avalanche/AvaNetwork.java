@@ -65,5 +65,17 @@ public class AvaNetwork {
             }
         }
     }
+    String etFullURL() {
+        return this.protocol + "://${this.ip}:${this.port}";
+    }
 
+    String getWsUrlX(){
+        String protocol = this.protocol.equals("https") ? "wss" : "ws";
+        return protocol + "://${this.ip}:${this.port}/ext/bc/X/events";
+    }
+
+    String getWsUrlC() {
+        String protocol = this.protocol == "https" ? "wss" : "ws";
+        return protocol + "://${this.ip}:${this.port}/ext/bc/C/ws";
+    }
 }
