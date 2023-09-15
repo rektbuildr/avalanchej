@@ -11,6 +11,14 @@
 
 package to.avax.avalanche;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import to.avax.avalanche.network.http.AvaxtoHttpClient;
+
+import java.util.Map;
+
+@Getter
 public class AvaNetwork {
 
     public static int network_id = 0;
@@ -45,6 +53,24 @@ public class AvaNetwork {
         this.readonly = readonly;
     }
 
+    public boolean testConnection() {
+
+        ObjectMapper om = new ObjectMapper();
+        JsonNode json = om.valueToTree(Map.of(
+                "jsonrpc", "2.0",
+                "id", 1,
+                "method", "info.getNetworkID"
+        ));
+        String ret = AvaxtoHttpClient.postJSON(
+            this.url + "/ext/info",
+            json,
+            Map.of()
+        );
+
+        System.out.println(ret);
+        return true;
+    }
+
     public void updateURL(String url) {
         String[] split = url.split("://");
         this.protocol = split[0];
@@ -75,7 +101,7 @@ public class AvaNetwork {
     }
 
     String getWsUrlC() {
-        String protocol = this.protocol == "https" ? "wss" : "ws";
+        String protocol = this.protocol.equals("https") ? "wss" : "ws";
         return protocol + "://${this.ip}:${this.port}/ext/bc/C/ws";
     }
 }

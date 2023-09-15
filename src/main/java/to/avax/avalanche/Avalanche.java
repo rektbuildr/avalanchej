@@ -23,7 +23,6 @@ import to.avax.avalanche.apis.index.IndexAPI;
 import to.avax.avalanche.apis.info.InfoAPI;
 import to.avax.avalanche.apis.metrics.MetricsAPI;
 import to.avax.avalanche.apis.platformvm.PlatformVMAPI;
-import to.avax.avalanche.network.AvaNetwork;
 import to.avax.avalanche.network.NetworkProtocolType;
 
 @Data
