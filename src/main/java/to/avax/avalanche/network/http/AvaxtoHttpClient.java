@@ -70,8 +70,8 @@ public class AvaxtoHttpClient {
     }
 
     public static BasicHeader[] mapToHeaders(Map<String, String> map) {
-        return (BasicHeader[])map.entrySet().stream().
-                map(x -> new BasicHeader(x.getKey(), x.getValue())).toArray();
+        return map.entrySet().stream().
+                map(x -> new BasicHeader(x.getKey(), x.getValue())).toArray(sz -> new BasicHeader[sz]);
     }
 
 
@@ -95,12 +95,12 @@ public class AvaxtoHttpClient {
 
     public static String postJSON(String url, JsonNode params, Map<String, String> headers) {
         HttpPost hp = new HttpPost(url);
-        hp.setHeader("Content-type", "application/json");
-        hp.setHeader("Accept", "application/json");
 
         BasicHeader[] headerList = mapToHeaders(headers);
         hp.setEntity(new StringEntity(params.toString()));
         hp.setHeaders(headerList);
+        hp.setHeader("Content-type", "application/json");
+
         try {
             return getClient().execute(hp, new BasicHttpClientResponseHandler());
         } catch (IOException e) {

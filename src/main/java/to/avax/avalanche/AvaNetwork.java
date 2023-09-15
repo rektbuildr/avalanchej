@@ -57,7 +57,8 @@ public class AvaNetwork {
                         int networkId,
                         String explorerUrl,
                         String explorerSiteUrl,
-                        boolean readonly){
+                        boolean readonly) {
+
         this.id = network_id++;
         this.name = name;
         this.explorerUrl = explorerUrl;
@@ -79,6 +80,7 @@ public class AvaNetwork {
                 "id", 1,
                 "method", "info.getNetworkID"
         ));
+
         String ret = AvaxtoHttpClient.postJSON(
             this.url + "/ext/info",
             json,
@@ -110,16 +112,16 @@ public class AvaNetwork {
         }
     }
     String etFullURL() {
-        return this.protocol + "://${this.ip}:${this.port}";
+        return this.protocol + "://" + this.ip + ":" + this.port;
     }
 
     String getWsUrlX(){
         String protocol = this.protocol.equals("https") ? "wss" : "ws";
-        return protocol + "://${this.ip}:${this.port}/ext/bc/X/events";
+        return protocol + "://" + this.ip + ":" + this.port + "/ext/bc/X/events";
     }
 
     String getWsUrlC() {
         String protocol = this.protocol.equals("https") ? "wss" : "ws";
-        return protocol + "://${this.ip}:${this.port}/ext/bc/C/ws";
+        return protocol + "://" + this.ip + ":" + this.port + "/ext/bc/C/ws";
     }
 }
