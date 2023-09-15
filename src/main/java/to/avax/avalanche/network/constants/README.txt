@@ -1,1 +1,0 @@
-MainnetConfig and TestnetConfig are fiends in AvaNetwork class
