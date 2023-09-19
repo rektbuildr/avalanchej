@@ -12,6 +12,8 @@
 package to.avax.avalanche;
 
 import lombok.Data;
+import to.avax.avalanche.common.APIBase;
+
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +30,9 @@ import java.util.Map;
     protected String auth;
     protected Map<String, String> headers;
 
+    protected Map<String, APIBase> apis;
+
+
     public void setAddress(String host, int port, String protocol, String baseEndpoint){
         this.protocol = protocol;
         this.ip = host;
@@ -39,8 +44,28 @@ import java.util.Map;
         this.headers = new HashMap<>();
     }
 
+    public void removeHeader(String key) {
+        this.headers.remove(key);
+    }
     public void removeAllHeaders() {
         this.headers = new HashMap<>();
     }
+
+    public <GA extends APIBase> GA addAPI(
+    String apiName,
+    ConstructorFN: new (AvalancheCore avax,
+    String baseurl,
+            ...args: any[]
+    ) => GA,
+    baseurl: string = undefined,
+            ...args: any[]
+  ) => {
+        if (typeof baseurl === "undefined") {
+            this.apis[`${apiName}`] = new ConstructorFN(this, undefined, ...args)
+        } else {
+            this.apis[`${apiName}`] = new ConstructorFN(this, baseurl, ...args)
+        }
+    }
+
 
 }
