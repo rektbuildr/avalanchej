@@ -4,15 +4,11 @@ An experimental (unofficial) Java library for interacting with the [Avalanche Cr
 
 ## Documentation
 
-For more information, visit:
-
-* https://crypto.bi
+For support and documentation visit [Crypto.bi](https://crypto.bi/forum/)
 
 ## Author
 
-REKTBuildr
-
-* https://github.com/REKTBuildr
+[REKTBuildr](https://crypto.bi/author/rektbuildr/)
 
 ## Notes
 
