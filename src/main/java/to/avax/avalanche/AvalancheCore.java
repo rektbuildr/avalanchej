@@ -12,13 +12,13 @@
 package to.avax.avalanche;
 
 import lombok.Data;
-import to.avax.avalanche.common.APIBase;
+import to.avax.avalanche.common.apibase.APIBase;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
-@Data public class AvalancheCore {
+@Data
+public class AvalancheCore {
     protected int networkID;
     protected String hrp;
     protected String protocol;
@@ -31,7 +31,6 @@ import java.util.Map;
     protected Map<String, String> headers;
 
     protected Map<String, APIBase> apis;
-
 
     public void setAddress(String host, int port, String protocol, String baseEndpoint){
         this.protocol = protocol;
@@ -53,18 +52,15 @@ import java.util.Map;
 
     public <GA extends APIBase> GA addAPI(
     String apiName,
-    ConstructorFN: new (AvalancheCore avax,
+    GA api,
     String baseurl,
-            ...args: any[]
-    ) => GA,
-    baseurl: string = undefined,
-            ...args: any[]
-  ) => {
-        if (typeof baseurl === "undefined") {
-            this.apis[`${apiName}`] = new ConstructorFN(this, undefined, ...args)
-        } else {
-            this.apis[`${apiName}`] = new ConstructorFN(this, baseurl, ...args)
-        }
+    Object ...args) {
+        this.apis.put(apiName, api);
+        return api;
+    }
+
+    public APIBase api(String apiName) {
+        return this.apis.get(apiName);
     }
 
 

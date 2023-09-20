@@ -8,7 +8,7 @@
  *
  *
  **/
-package to.avax.avalanche.common;
+package to.avax.avalanche.common.apibase;
 
 import to.avax.avalanche.AvalancheCore;
 import lombok.Data;

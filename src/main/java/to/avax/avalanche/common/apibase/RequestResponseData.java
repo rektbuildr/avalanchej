@@ -8,18 +8,16 @@
  *
  *
  **/
-package to.avax.avalanche.common;
 
-import com.fasterxml.jackson.databind.JsonNode;
+package to.avax.avalanche.common.apibase;
+
 import lombok.Data;
-
-import java.util.Map;
 
 @Data
 public class RequestResponseData {
-    JsonNode data;
-    Map<String, String> headers;
-    int status;
-    String statusText;
-
+    public Object data;
+    public Object headers;
+    public int status;
+    public String statusText;
+    public Object request;
 }
