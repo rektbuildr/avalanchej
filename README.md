@@ -4,7 +4,9 @@ An experimental (unofficial) Java library for interacting with the [Avalanche Cr
 
 ## Documentation
 
-For support and documentation visit [Crypto.bi](https://crypto.bi/forum/)
+Read the [ELI5 Introduction to AvalancheJ](https://crypto.bi/avalanchej/)
+
+For questions, bug reports and general support visit [Crypto.bi](https://crypto.bi/forum/)
 
 ## Author
 
