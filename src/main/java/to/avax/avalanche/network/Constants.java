@@ -87,4 +87,8 @@ public class Constants {
         return defaultConfig;
     }
 
+    public static NetworkConfig getTestConfig() {
+        return testnetConfig;
+    }
+
 }

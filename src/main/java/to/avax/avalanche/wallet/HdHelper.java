@@ -65,15 +65,17 @@ public class HdHelper {
     }
 
     public String getAddressForIndex(int index) {
+        return getAddressForIndex(index, getAvalanche().getNetworkID());
+    }
 
+    public String getAddressForIndex(int index, int networkId) {
         var key = this.getHdKeyForIndex(index);
         var publicKey = key.getPublicKey();
         var addrBuf = KeyPair.addressFromPublicKey(publicKey);
-        var hrp = getPreferredHRP(getAvalanche().getNetworkID());
+        var hrp = getPreferredHRP(networkId);
         var addr = Bintools.addressToString(hrp, this.chainId, addrBuf);
         return addr;
     }
-
     private HDKey getHdKeyForIndex(int index) {
         String path = String.format("%s/%d", this.changePath, index);
         HDKey key = this.masterKey.derive(path);
