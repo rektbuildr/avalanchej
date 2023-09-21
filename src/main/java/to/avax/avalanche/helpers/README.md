@@ -1,7 +1,6 @@
-# /resources
+# to.avax.avalanche.helpers
 
-Application configuration and static data files go here
-
+Utility classes go under this package
 
 ## Additional Documentation
 

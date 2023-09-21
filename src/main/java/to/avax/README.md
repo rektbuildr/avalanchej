@@ -1,7 +1,6 @@
-# /resources
+# to.avax
 
-Application configuration and static data files go here
-
+AvalancheJ - An experimental (unofficial) Java library for interacting with the Avalanche Platform
 
 ## Additional Documentation
 

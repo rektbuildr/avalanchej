@@ -1,7 +1,8 @@
-# /resources
+# to.avax.glacier
 
-Application configuration and static data files go here
+Glacier is the Avalanche indexing data API
 
+Here you'll find an implementation of Glacier based on the published OpenAPI docs
 
 ## Additional Documentation
 

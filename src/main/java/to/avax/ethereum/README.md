@@ -1,7 +1,8 @@
-# /resources
+# to.avax.ethereum
 
-Application configuration and static data files go here
+Ethereum-related functionality goes here
 
+Avalanche C-Chain is Ethereum-based and uses the same base libraries as the EVM. 
 
 ## Additional Documentation
 

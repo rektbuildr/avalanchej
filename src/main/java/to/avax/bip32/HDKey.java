@@ -14,7 +14,6 @@ package to.avax.bip32;
 import lombok.Data;
 import org.bitcoinj.crypto.ChildNumber;
 import org.bitcoinj.crypto.DeterministicKey;
-import org.bitcoinj.crypto.HDPath;
 import org.bitcoinj.params.MainNetParams;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;

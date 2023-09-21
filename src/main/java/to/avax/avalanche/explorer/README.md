@@ -1,7 +1,8 @@
-# /resources
+# to.avax.avalanche.explorer
 
-Application configuration and static data files go here
+The original Avalanche Explorer implementation is found here
 
+Likely superceded by Glacier
 
 ## Additional Documentation
 
