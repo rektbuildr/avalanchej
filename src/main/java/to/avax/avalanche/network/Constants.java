@@ -91,4 +91,8 @@ public class Constants {
         return testnetConfig;
     }
 
+    public static NetworkConfig getLocalConfig() {
+        return localnetConfig;
+    }
+
 }
