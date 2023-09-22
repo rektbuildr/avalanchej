@@ -18,6 +18,10 @@ import to.avax.avalanche.network.http.AvaxtoHttpClient;
 
 import java.util.Map;
 
+/**
+ * AvaNetwork was originally used by the Typescript avax-wallet routines
+ * If you're developing new software, use to.avax.avalanche.network classes if possible.
+ * */
 @Getter
 public class AvaNetwork {
 

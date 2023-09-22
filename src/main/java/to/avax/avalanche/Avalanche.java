@@ -23,6 +23,7 @@ import to.avax.avalanche.apis.index.IndexAPI;
 import to.avax.avalanche.apis.info.InfoAPI;
 import to.avax.avalanche.apis.metrics.MetricsAPI;
 import to.avax.avalanche.apis.platformvm.PlatformVMAPI;
+import to.avax.avalanche.network.NetworkConfig;
 import to.avax.avalanche.network.NetworkProtocolType;
 
 @Data
@@ -61,8 +62,17 @@ public class Avalanche extends AvalancheCore {
         this(apiIp, apiPort, apiProtocol, networkID, "X", "C", "avax", false);
     }
 
-    public Avalanche(AvaNetwork net) {
+    /*
+    * On avalanche-wallet based projects AvaNetwork is the usual interface
+    * */public Avalanche(AvaNetwork net) {
         this(net.getIp(), net.getPort(), NetworkProtocolType.of(net.getProtocol()), net.getNetworkId());
+    }
+
+    /*
+    * NetworkConfig constructor is recommended over AvaNetwork for new projects
+    * */
+    public Avalanche(NetworkConfig net) {
+        this(net.getApiIp(), net.getApiPort(), NetworkProtocolType.of("https"), net.getNetworkID());
     }
 
     public Avalanche(){
