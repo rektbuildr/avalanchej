@@ -54,6 +54,7 @@ public class JRPCAPI extends APIBase {
             httpPost.addHeader("Content-Type", "application/json;charset=UTF-8");
 
             String json = "{\"jsonrpc\":\"" + this.jrpcVersion + "\",\"id\":" + this.rpcID + ",\"method\":\"" + method + "\",\"params\":" + new ObjectMapper().writeValueAsString(params) + "}";
+
             HttpEntity postBody = new StringEntity(json);
             httpPost.setEntity(postBody);
 
