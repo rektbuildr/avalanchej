@@ -9,10 +9,8 @@
  *
  *
  **/
-package to.avax.avalanche.apis.avm.utxos;
 
-import to.avax.avalanche.common.utxos.StandardUTXO;
+package to.avax.avalanche.common.utxos;
 
-public class UTXO extends StandardUTXO {
-
+public abstract class StandardUTXOSet <UTXOClass extends StandardUTXO>{
 }
