@@ -10,7 +10,7 @@
  **/
 
 package to.avax.avalanche.common.keychain;
-import to.avax.avalanche.utils.Bintools;
+import to.avax.avalanche.utils.BinTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +69,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      * @param newKey A key pair of the appropriate class to be added to the [[StandardKeyChain]]
      */
     void addKey(KPClass newKey) {
-        this.keys.put(Bintools.bytesToHex(newKey.getAddress()), newKey);
+        this.keys.put(BinTools.bytesToHex(newKey.getAddress()), newKey);
     }
 
     /**
@@ -81,7 +81,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      * @returns The boolean true if a key was removed.
      */
     boolean removeKey(KPClass key) {
-        String kaddr = Bintools.bytesToHex(key.getAddress());
+        String kaddr = BinTools.bytesToHex(key.getAddress());
         if (this.keys.containsKey(kaddr)) {
             this.keys.remove(kaddr);
             return true;
@@ -97,7 +97,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      * @returns True on success, false if not found
      */
     boolean hasKey(byte[] address) {
-        return this.keys.containsKey(Bintools.bytesToHex(address));
+        return this.keys.containsKey(BinTools.bytesToHex(address));
     }
 
     /**
@@ -109,7 +109,7 @@ public abstract class StandardKeyChain<KPClass extends StandardKeyPair> {
      * @returns A reference to the [[StandardKeyPair]] in the keys database
      */
     KPClass getKey(byte[] address) {
-        return this.keys.get(Bintools.bytesToHex(address));
+        return this.keys.get(BinTools.bytesToHex(address));
     }
 
     protected abstract StandardKeyChain create(Object... args);

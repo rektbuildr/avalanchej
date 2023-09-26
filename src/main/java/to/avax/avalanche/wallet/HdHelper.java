@@ -15,7 +15,7 @@ import lombok.Data;
 import to.avax.avalanche.apis.avm.keychain.KeyPair;
 import to.avax.avalanche.crypto.KeyChain;
 import to.avax.avalanche.crypto.UTXOSet;
-import to.avax.avalanche.utils.Bintools;
+import to.avax.avalanche.utils.BinTools;
 import to.avax.bip32.HDKey;
 
 import static to.avax.avalanche.network.Network.getAvalanche;
@@ -73,7 +73,7 @@ public class HdHelper {
         var publicKey = key.getPublicKey();
         var addrBuf = KeyPair.addressFromPublicKey(publicKey);
         var hrp = getPreferredHRP(networkId);
-        var addr = Bintools.addressToString(hrp, this.chainId, addrBuf);
+        var addr = BinTools.addressToString(hrp, this.chainId, addrBuf);
         return addr;
     }
     private HDKey getHdKeyForIndex(int index) {
