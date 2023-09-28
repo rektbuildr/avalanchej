@@ -15,7 +15,12 @@ import org.bitcoinj.core.Base58;
 import org.bitcoinj.core.Bech32;
 import to.avax.avalanche.wallet.Types;
 
+import java.nio.ByteBuffer;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BinTools {
 
@@ -87,5 +92,63 @@ public class BinTools {
         }
     }
 
+    /**
+     * Returns true if hexidecimal, otherwise false
+     * @param hex the string to verify is hexidecimal
+     */
+    public boolean isHex(String hex) {
+        if (hex.isEmpty() || hex.trim().isEmpty()) {
+            return false;
+        }
+        final Pattern p1 = Pattern.compile("[0-9A-Fa-f]");
 
+        final boolean startsWith0x = hex.startsWith("0x");
+        final Matcher matchResult = startsWith0x ? p1.matcher(hex.substring(2)) : p1.matcher(hex);
+        final long matchCount = matchResult.results().count();
+        return (startsWith0x && (hex.length() - 2 == matchCount)) || (hex.length() == matchCount);
+    }
+
+    /**
+     * Takes a {@link https://github.com/feross/buffer|Buffer} and returns a base-58 string with
+     * checksum as per the cb58 standard.
+     *
+     * @param bytes A {@link https://github.com/feross/buffer|Buffer} to serialize
+     *
+     * @returns A serialized base-58 string of the Buffer.
+     */
+    public static String cb58Encode(byte[] bytes) {
+        byte[] x = addChecksum(bytes);
+        return bufferToB58(x);
+    }
+
+    /**
+     * Takes a {@link https://github.com/feross/buffer|Buffer} and adds a checksum, returning
+     * a {@link https://github.com/feross/buffer|Buffer} with the 4-byte checksum appended.
+     *
+     * @param buff The {@link https://github.com/feross/buffer|Buffer} to append a checksum
+     */
+    public static byte[] addChecksum(byte[] buff) {
+        try {
+            MessageDigest dig = MessageDigest.getInstance("SHA256");
+            dig.update(buff);
+            byte[] hashslice = dig.digest();
+
+            ByteBuffer newBuff = ByteBuffer.allocate(buff.length + hashslice.length);
+            return newBuff.array();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    /**
+     * Takes a {@link https://github.com/feross/buffer|Buffer} and returns a base-58 string of
+     * the {@link https://github.com/feross/buffer|Buffer}.
+     *
+     * @param buff The {@link https://github.com/feross/buffer|Buffer} to convert to base-58
+     */
+    public static String bufferToB58(byte[] buff){
+        return Base58.encode(buff);
+    }
 }

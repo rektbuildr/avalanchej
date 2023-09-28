@@ -48,4 +48,22 @@ public class HelperFunctions {
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
+
+    /**
+     * Takes a nodeID buffer and produces a nodeID string with prefix.
+     *
+     * @param pk A {@link https://github.com/feross/buffer|Buffer} for the nodeID.
+     */
+    public static String bufferToNodeIDString(byte[] pk) {
+        return String.format("NodeID-%s", BinTools.cb58Encode(pk));
+    }
+
+    /**
+     * Takes a private key buffer and produces a private key string with prefix.
+     *
+     * @param pk A {@link https://github.com/feross/buffer|Buffer} for the private key.
+     */
+    public static String bufferToPrivateKeyString(byte[] pk) {
+        return String.format("PrivateKey-%s", BinTools.cb58Encode(pk));
+    }
 }
