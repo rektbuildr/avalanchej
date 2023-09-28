@@ -33,6 +33,18 @@ public class HelperFunctions {
             default -> "unknown";
         };
     }
+    /**
+     * Takes a private key string and produces a private key {@link https://github.com/feross/buffer|Buffer}.
+     *
+     * @param pk A string for the private key.
+     */
+    public byte[] privateKeyStringToBuffer(String pk) {
+        if (!pk.startsWith("PrivateKey-")) {
+            throw new RuntimeException("Error - privateKeyStringToBuffer: private keys must start with 'PrivateKey-'");
+        }
+        String[] pksplit = pk.split("-");
+        return BinTools.cb58Decode(pksplit[pksplit.length - 1]);
+    }
 
     /*
     * Original getRandomString code by Baeldung https://www.baeldung.com/java-random-string

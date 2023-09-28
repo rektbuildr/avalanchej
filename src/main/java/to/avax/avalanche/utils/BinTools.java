@@ -13,11 +13,14 @@ package to.avax.avalanche.utils;
 
 import org.bitcoinj.core.Base58;
 import org.bitcoinj.core.Bech32;
+import to.avax.avalanche.utils.errors.ChecksumError;
 import to.avax.avalanche.wallet.Types;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -141,6 +144,43 @@ public class BinTools {
 
     }
 
+    /**
+     * Takes a {@link https://github.com/feross/buffer|Buffer} with an appended 4-byte checksum
+     * and returns true if the checksum is valid, otherwise false.
+     *
+     * @param b The {@link https://github.com/feross/buffer|Buffer} to validate the checksum
+     */
+    public static boolean validateChecksum(byte[] buff) {
+        byte[] checkslice = Arrays.copyOfRange(buff, buff.length - 4, buff.length);
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA256");
+            md.update(Arrays.copyOfRange(buff,0,buff.length - 4));
+            byte[] hash = md.digest();
+            byte[] hashslice = Arrays.copyOfRange(hash, 28, hash.length);
+            return Arrays.equals(checkslice, hashslice);
+        } catch (NoSuchAlgorithmException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Takes a cb58 serialized {@link https://github.com/feross/buffer|Buffer} or base-58 string
+     * and returns a {@link https://github.com/feross/buffer|Buffer} of the original data. Throws on error.
+     *
+     * @param bytes A cb58 serialized {@link https://github.com/feross/buffer|Buffer} or base-58 string
+     */
+    public static byte[] cb58Decode(byte[] bytes) {
+
+        if (validateChecksum(bytes)) {
+            return Arrays.copyOfRange(bytes, 0, bytes.length - 4);
+        }
+
+        throw new ChecksumError("Error - BinTools.cb58Decode: invalid checksum");
+    }
+
+    public static byte[] cb58Decode(String str) {
+        return cb58Decode(str.getBytes(StandardCharsets.UTF_8));
+    }
 
     /**
      * Takes a {@link https://github.com/feross/buffer|Buffer} and returns a base-58 string of
