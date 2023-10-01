@@ -12,8 +12,14 @@
 package to.avax.avalanche.apis.avm.utxos;
 
 import to.avax.avalanche.common.utxos.StandardUTXO;
+import to.avax.avalanche.utils.BinTools;
+
+import java.nio.ByteBuffer;
 
 public class UTXO extends StandardUTXO {
+
+    private String _typeName = "UTXO";
+    private String _typeID = null;
 
     public UTXO(){}
 
