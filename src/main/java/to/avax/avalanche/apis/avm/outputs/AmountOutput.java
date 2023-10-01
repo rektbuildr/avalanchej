@@ -9,12 +9,10 @@
  *
  *
  **/
-package to.avax.avalanche.apis.avm.utxos;
 
-import to.avax.avalanche.common.utxos.StandardUTXO;
+package to.avax.avalanche.apis.avm.outputs;
 
-public class UTXO extends StandardUTXO {
+import to.avax.avalanche.common.output.StandardAmountOutput;
 
-    public UTXO(){}
-
+public class AmountOutput extends StandardAmountOutput {
 }

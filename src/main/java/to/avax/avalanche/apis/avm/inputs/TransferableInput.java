@@ -9,12 +9,9 @@
  *
  *
  **/
-package to.avax.avalanche.apis.avm.utxos;
+package to.avax.avalanche.apis.avm.inputs;
 
-import to.avax.avalanche.common.utxos.StandardUTXO;
+import to.avax.avalanche.common.input.StandardTransferableInput;
 
-public class UTXO extends StandardUTXO {
-
-    public UTXO(){}
-
+public class TransferableInput extends StandardTransferableInput {
 }
