@@ -52,5 +52,6 @@ public class Buffer  {
     }
     public int writeUInt32BE(int inValue){
         return writeUInt32BE(inValue, 0);
+
     }
 }
