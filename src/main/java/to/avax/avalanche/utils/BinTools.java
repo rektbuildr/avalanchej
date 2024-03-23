@@ -96,7 +96,7 @@ public class BinTools {
     }
 
     /**
-     * Returns true if hexidecimal, otherwise false
+     * Returns true if hexdecimal, otherwise false
      * @param hex the string to verify is hexidecimal
      */
     public boolean isHex(String hex) {

@@ -12,6 +12,8 @@
 
 package to.avax.avalanche.utils.serialization;
 
+import java.util.Map;
+
 public abstract class AvalancheSerializable {
     protected String _typeName;
     protected int _typeID;
@@ -37,4 +39,35 @@ public abstract class AvalancheSerializable {
     public int getCodecID() {
         return this._codecID;
     }
+
+    public void deserialize(Map<String, Object> fields, SerializedEncoding encoding) {
+    }
+
+    /**
+     * Convert value to type of [[SerializedType]] or [[SerializedEncoding]]
+     *
+     * @param value
+     * @param encoding [[SerializedEncoding]]
+     * @param intype [[SerializedType]]
+     * @param outtype [[SerializedType]]
+     * @param ...args remaining arguments
+     * @returns type of [[SerializedType]] or [[SerializedEncoding]]
+
+    public SerializedTypeOrEncoding decoder(String value,
+                                            SerializedEncoding encoding,
+                                            SerializedTypeOrEncoding intype,
+                                            SerializedType outtype,
+                                            Object[] args) {
+        if (value == null) {
+            throw new RuntimeException("Error - Serializable.decoder: value passed is undefined");
+        }
+
+        if (encoding != SerializedEncoding.DISPLAY) {
+            intype = encoding;
+        }
+
+        byte[] vb = this.typeToBuffer(value, intype, args);
+        return this.bufferToType(vb, outtype, args);
+    }
+     */
 }

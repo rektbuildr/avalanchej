@@ -12,6 +12,6 @@
 
 package to.avax.avalanche.utils.serialization;
 
-public enum SerializedEncoding {
+public enum SerializedEncoding implements SerializedTypeOrEncoding {
      HEX, CB58, BASE58, BASE64, DECIMALSTRING, NUMBER, UTF8, DISPLAY
 }

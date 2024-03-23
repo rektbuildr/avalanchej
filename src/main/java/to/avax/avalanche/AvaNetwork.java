@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import to.avax.avalanche.network.http.AvaxtoHttpClient;
-
 import java.util.Map;
 
 /**

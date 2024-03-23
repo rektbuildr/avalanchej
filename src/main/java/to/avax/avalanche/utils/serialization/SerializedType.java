@@ -12,7 +12,7 @@
 
 package to.avax.avalanche.utils.serialization;
 
-public enum SerializedType {
+public enum SerializedType implements SerializedTypeOrEncoding {
       HEX, BN, BUFFER, BECH32, NODEID, PRIVATEKEY,
       CB58, BASE58, BASE64, DECIMALSTRING, NUMBER, UTF8
 }

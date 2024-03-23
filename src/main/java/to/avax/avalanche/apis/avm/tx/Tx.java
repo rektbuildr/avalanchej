@@ -17,7 +17,7 @@ import to.avax.avalanche.common.tx.StandardTx;
 
 public class Tx extends StandardTx<KeyPair, KeyChain, UnsignedTx> {
     protected String _typeName = "Tx";
-    protected String _typeID = null;
+    protected int _typeID = -1;
 
 
 }
