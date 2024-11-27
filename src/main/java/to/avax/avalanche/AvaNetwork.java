@@ -13,7 +13,6 @@ package to.avax.avalanche;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
 import to.avax.avalanche.network.http.AvaxtoHttpClient;
 import java.util.Map;
 
@@ -21,7 +20,6 @@ import java.util.Map;
  * AvaNetwork was originally used by the Typescript avax-wallet routines
  * If you're developing new software, use to.avax.avalanche.network classes if possible.
  * */
-@Getter
 public class AvaNetwork {
 
     public static int network_id = 0;
@@ -126,5 +124,101 @@ public class AvaNetwork {
     String getWsUrlC() {
         String protocol = this.protocol.equals("https") ? "wss" : "ws";
         return protocol + "://" + this.ip + ":" + this.port + "/ext/bc/C/ws";
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public static int getNetwork_id() {
+        return network_id;
+    }
+
+    public static void setNetwork_id(int network_id) {
+        AvaNetwork.network_id = network_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public int getNetworkId() {
+        return networkId;
+    }
+
+    public void setNetworkId(int networkId) {
+        this.networkId = networkId;
+    }
+
+    public String getExplorerUrl() {
+        return explorerUrl;
+    }
+
+    public void setExplorerUrl(String explorerUrl) {
+        this.explorerUrl = explorerUrl;
+    }
+
+    public String getExplorerSiteUrl() {
+        return explorerSiteUrl;
+    }
+
+    public void setExplorerSiteUrl(String explorerSiteUrl) {
+        this.explorerSiteUrl = explorerSiteUrl;
+    }
+
+    public boolean isReadonly() {
+        return readonly;
+    }
+
+    public void setReadonly(boolean readonly) {
+        this.readonly = readonly;
+    }
+
+    public boolean isWithCredentials() {
+        return withCredentials;
+    }
+
+    public void setWithCredentials(boolean withCredentials) {
+        this.withCredentials = withCredentials;
     }
 }

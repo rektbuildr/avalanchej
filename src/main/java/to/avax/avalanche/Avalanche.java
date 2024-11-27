@@ -11,8 +11,8 @@
  **/
 package to.avax.avalanche;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+
 import to.avax.avalanche.apis.keystore.KeystoreAPI;
 import to.avax.avalanche.apis.admin.AdminAPI;
 import to.avax.avalanche.apis.auth.AuthAPI;
@@ -26,8 +26,7 @@ import to.avax.avalanche.apis.platformvm.PlatformVMAPI;
 import to.avax.avalanche.network.NetworkConfig;
 import to.avax.avalanche.network.NetworkProtocolType;
 
-@Data
-@EqualsAndHashCode(callSuper=false)
+
 public class Avalanche extends AvalancheCore {
     private AdminAPI adminAPI;
     private AuthAPI authAPI;
@@ -79,4 +78,83 @@ public class Avalanche extends AvalancheCore {
         super();
     }
 
+    public AdminAPI getAdminAPI() {
+        return adminAPI;
+    }
+
+    public void setAdminAPI(AdminAPI adminAPI) {
+        this.adminAPI = adminAPI;
+    }
+
+    public AuthAPI getAuthAPI() {
+        return authAPI;
+    }
+
+    public void setAuthAPI(AuthAPI authAPI) {
+        this.authAPI = authAPI;
+    }
+
+    public AVMAPI getAvmAPI() {
+        return avmAPI;
+    }
+
+    public void setAvmAPI(AVMAPI avmAPI) {
+        this.avmAPI = avmAPI;
+    }
+
+    public EVMAPI getEvmAPI() {
+        return evmAPI;
+    }
+
+    public void setEvmAPI(EVMAPI evmAPI) {
+        this.evmAPI = evmAPI;
+    }
+
+    public HealthAPI getHealthAPI() {
+        return healthAPI;
+    }
+
+    public void setHealthAPI(HealthAPI healthAPI) {
+        this.healthAPI = healthAPI;
+    }
+
+    public IndexAPI getIndexAPI() {
+        return indexAPI;
+    }
+
+    public void setIndexAPI(IndexAPI indexAPI) {
+        this.indexAPI = indexAPI;
+    }
+
+    public InfoAPI getInfoAPI() {
+        return infoAPI;
+    }
+
+    public void setInfoAPI(InfoAPI infoAPI) {
+        this.infoAPI = infoAPI;
+    }
+
+    public MetricsAPI getMetricsAPI() {
+        return metricsAPI;
+    }
+
+    public void setMetricsAPI(MetricsAPI metricsAPI) {
+        this.metricsAPI = metricsAPI;
+    }
+
+    public KeystoreAPI getKeystoreAPI() {
+        return keystoreAPI;
+    }
+
+    public void setKeystoreAPI(KeystoreAPI keystoreAPI) {
+        this.keystoreAPI = keystoreAPI;
+    }
+
+    public PlatformVMAPI getPlatformVMAPI() {
+        return platformVMAPI;
+    }
+
+    public void setPlatformVMAPI(PlatformVMAPI platformVMAPI) {
+        this.platformVMAPI = platformVMAPI;
+    }
 }

@@ -11,11 +11,8 @@
 
 package to.avax.avalanche.wallet.evm;
 
-import lombok.Data;
-
 import java.math.BigInteger;
 
-@Data
 public class EvmWalletReadonly {
     private BigInteger balance;
     private String address;

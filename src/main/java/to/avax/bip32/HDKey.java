@@ -11,7 +11,7 @@
 
 package to.avax.bip32;
 
-import lombok.Data;
+
 import org.bitcoinj.crypto.ChildNumber;
 import org.bitcoinj.crypto.DeterministicKey;
 import org.bitcoinj.params.MainNetParams;
@@ -22,7 +22,6 @@ import java.util.Map;
 import org.bitcoinj.crypto.HDKeyDerivation;
 
 
-@Data
 public class HDKey {
 
     private DeterministicKey key;
@@ -152,5 +151,77 @@ public class HDKey {
 
     public static HDKey fromPublicKey(byte[] publicKey, byte[] chainCode, BIP32Network network) {
         return null;
+    }
+
+    public DeterministicKey getKey() {
+        return key;
+    }
+
+    public void setKey(DeterministicKey key) {
+        this.key = key;
+    }
+
+    public byte[] getChainCode() {
+        return chainCode;
+    }
+
+    public void setChainCode(byte[] chainCode) {
+        this.chainCode = chainCode;
+    }
+
+    public BIP32Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(BIP32Network network) {
+        this.network = network;
+    }
+
+    public boolean isLowR() {
+        return lowR;
+    }
+
+    public void setLowR(boolean lowR) {
+        this.lowR = lowR;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getFingerprint() {
+        return fingerprint;
+    }
+
+    public void setFingerprint(int fingerprint) {
+        this.fingerprint = fingerprint;
+    }
+
+    public void setPublicKey(byte[] publicKey) {
+        this.publicKey = publicKey;
+    }
+
+    public void setPrivateKey(byte[] privateKey) {
+        this.privateKey = privateKey;
+    }
+
+    public byte[] getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(byte[] identifier) {
+        this.identifier = identifier;
+    }
+
+    public Map<String, Integer> getVersions() {
+        return versions;
+    }
+
+    public void setVersions(Map<String, Integer> versions) {
+        this.versions = versions;
     }
 }
