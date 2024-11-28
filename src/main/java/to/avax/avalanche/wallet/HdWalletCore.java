@@ -12,12 +12,8 @@
 
 package to.avax.avalanche.wallet;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import to.avax.bip32.HDKey;
 
-@EqualsAndHashCode(callSuper=false)
-@Data
 public class HdWalletCore extends WalletCore {
 
     private String chainId;
@@ -51,5 +47,77 @@ public class HdWalletCore extends WalletCore {
 
     public String getCurrentAddressAvm() {
         return this.externalHelper.getCurrentAddress();
+    }
+
+    public String getChainId() {
+        return chainId;
+    }
+
+    public void setChainId(String chainId) {
+        this.chainId = chainId;
+    }
+
+    public HdHelper getInternalHelper() {
+        return internalHelper;
+    }
+
+    public void setInternalHelper(HdHelper internalHelper) {
+        this.internalHelper = internalHelper;
+    }
+
+    public HdHelper getExternalHelper() {
+        return externalHelper;
+    }
+
+    public void setExternalHelper(HdHelper externalHelper) {
+        this.externalHelper = externalHelper;
+    }
+
+    public HdHelper getPlatformHelper() {
+        return platformHelper;
+    }
+
+    public void setPlatformHelper(HdHelper platformHelper) {
+        this.platformHelper = platformHelper;
+    }
+
+    public HDKey getAccountNodeXP() {
+        return accountNodeXP;
+    }
+
+    public void setAccountNodeXP(HDKey accountNodeXP) {
+        this.accountNodeXP = accountNodeXP;
+    }
+
+    public HDKey getEthHdNode() {
+        return ethHdNode;
+    }
+
+    public void setEthHdNode(HDKey ethHdNode) {
+        this.ethHdNode = ethHdNode;
+    }
+
+    public boolean isHdReady() {
+        return isHdReady;
+    }
+
+    public void setHdReady(boolean hdReady) {
+        isHdReady = hdReady;
+    }
+
+    public String getSeed() {
+        return seed;
+    }
+
+    public void setSeed(String seed) {
+        this.seed = seed;
+    }
+
+    public HDKey getHdKey() {
+        return hdKey;
+    }
+
+    public void setHdKey(HDKey hdKey) {
+        this.hdKey = hdKey;
     }
 }

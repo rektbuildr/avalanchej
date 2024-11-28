@@ -12,10 +12,8 @@
 package to.avax.avalanche.network;
 
 import java.math.BigInteger;
-import lombok.Data;
 
 
-@Data
 public class NetworkConfig {
     private String rawUrl;
     private NetworkProtocolType apiProtocol;
@@ -31,4 +29,108 @@ public class NetworkConfig {
     private String avaxID;
 
     private NetworkConfigRpc rpcUrl;
+
+    public String getRawUrl() {
+        return rawUrl;
+    }
+
+    public void setRawUrl(String rawUrl) {
+        this.rawUrl = rawUrl;
+    }
+
+    public NetworkProtocolType getApiProtocol() {
+        return apiProtocol;
+    }
+
+    public void setApiProtocol(NetworkProtocolType apiProtocol) {
+        this.apiProtocol = apiProtocol;
+    }
+
+    public String getApiIp() {
+        return apiIp;
+    }
+
+    public void setApiIp(String apiIp) {
+        this.apiIp = apiIp;
+    }
+
+    public int getApiPort() {
+        return apiPort;
+    }
+
+    public void setApiPort(int apiPort) {
+        this.apiPort = apiPort;
+    }
+
+    public String getExplorerURL() {
+        return explorerURL;
+    }
+
+    public void setExplorerURL(String explorerURL) {
+        this.explorerURL = explorerURL;
+    }
+
+    public String getExplorerSiteURL() {
+        return explorerSiteURL;
+    }
+
+    public void setExplorerSiteURL(String explorerSiteURL) {
+        this.explorerSiteURL = explorerSiteURL;
+    }
+
+    public int getNetworkID() {
+        return networkID;
+    }
+
+    public void setNetworkID(int networkID) {
+        this.networkID = networkID;
+    }
+
+    public int getEvmChainID() {
+        return evmChainID;
+    }
+
+    public void setEvmChainID(int evmChainID) {
+        this.evmChainID = evmChainID;
+    }
+
+    public String getXChainID() {
+        return xChainID;
+    }
+
+    public void setXChainID(String xChainID) {
+        this.xChainID = xChainID;
+    }
+
+    public String getPChainID() {
+        return pChainID;
+    }
+
+    public void setPChainID(String pChainID) {
+        this.pChainID = pChainID;
+    }
+
+    public String getCChainID() {
+        return cChainID;
+    }
+
+    public void setCChainID(String cChainID) {
+        this.cChainID = cChainID;
+    }
+
+    public String getAvaxID() {
+        return avaxID;
+    }
+
+    public void setAvaxID(String avaxID) {
+        this.avaxID = avaxID;
+    }
+
+    public NetworkConfigRpc getRpcUrl() {
+        return rpcUrl;
+    }
+
+    public void setRpcUrl(NetworkConfigRpc rpcUrl) {
+        this.rpcUrl = rpcUrl;
+    }
 }

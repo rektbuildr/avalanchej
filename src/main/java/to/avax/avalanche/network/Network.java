@@ -11,13 +11,13 @@
 
 package to.avax.avalanche.network;
 
-import lombok.Data;
+
 import to.avax.avalanche.Avalanche;
 import static to.avax.avalanche.helpers.NetworkHelper.createAvalancheProvider;
 import static to.avax.avalanche.network.Constants.getDefaultConfig;
 import static to.avax.avalanche.network.Constants.getTestConfig;
 
-@Data
+
 public class Network {
     private static Avalanche avalanche;
     private static Avalanche fuji;
@@ -34,5 +34,21 @@ public class Network {
 
     public static Avalanche getFuji() {
         return fuji;
+    }
+
+    public static void setAvalanche(Avalanche avalanche) {
+        Network.avalanche = avalanche;
+    }
+
+    public static void setFuji(Avalanche fuji) {
+        Network.fuji = fuji;
+    }
+
+    public static NetworkConfig getDefaultConfig() {
+        return defaultConfig;
+    }
+
+    public static void setDefaultConfig(NetworkConfig defaultConfig) {
+        Network.defaultConfig = defaultConfig;
     }
 }

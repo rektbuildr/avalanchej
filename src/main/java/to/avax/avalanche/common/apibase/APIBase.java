@@ -11,9 +11,8 @@
 package to.avax.avalanche.common.apibase;
 
 import to.avax.avalanche.AvalancheCore;
-import lombok.Data;
 
-@Data
+
 public class APIBase {
     protected AvalancheCore core;
     protected String baseURL;
@@ -25,5 +24,21 @@ public class APIBase {
 
     public APIBase() {
 
+    }
+
+    public AvalancheCore getCore() {
+        return core;
+    }
+
+    public void setCore(AvalancheCore core) {
+        this.core = core;
+    }
+
+    public String getBaseURL() {
+        return baseURL;
+    }
+
+    public void setBaseURL(String baseURL) {
+        this.baseURL = baseURL;
     }
 }

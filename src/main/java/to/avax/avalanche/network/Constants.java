@@ -11,10 +11,9 @@
 
 package to.avax.avalanche.network;
 
-import lombok.Data;
 import java.math.BigInteger;
 
-@Data
+
 public class Constants {
 
     private static NetworkConfig mainnetConfig;
@@ -95,4 +94,31 @@ public class Constants {
         return localnetConfig;
     }
 
+    public static NetworkConfig getMainnetConfig() {
+        return mainnetConfig;
+    }
+
+    public static void setMainnetConfig(NetworkConfig mainnetConfig) {
+        Constants.mainnetConfig = mainnetConfig;
+    }
+
+    public static NetworkConfig getTestnetConfig() {
+        return testnetConfig;
+    }
+
+    public static void setTestnetConfig(NetworkConfig testnetConfig) {
+        Constants.testnetConfig = testnetConfig;
+    }
+
+    public static NetworkConfig getLocalnetConfig() {
+        return localnetConfig;
+    }
+
+    public static void setLocalnetConfig(NetworkConfig localnetConfig) {
+        Constants.localnetConfig = localnetConfig;
+    }
+
+    public static void setDefaultConfig(NetworkConfig defaultConfig) {
+        Constants.defaultConfig = defaultConfig;
+    }
 }

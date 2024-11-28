@@ -11,7 +11,6 @@
 
 package to.avax.avalanche.wallet;
 
-import lombok.Data;
 import to.avax.avalanche.apis.avm.keychain.KeyPair;
 import to.avax.avalanche.crypto.KeyChain;
 import to.avax.avalanche.crypto.UTXOSet;
@@ -21,7 +20,6 @@ import to.avax.bip32.HDKey;
 import static to.avax.avalanche.network.Network.getAvalanche;
 import static to.avax.avalanche.utils.HelperFunctions.getPreferredHRP;
 
-@Data
 public class HdHelper {
 
     public final int  INDEX_RANGE = 20; // a gap of at least 20 indexes is needed to claim an index unused
@@ -85,5 +83,97 @@ public class HdHelper {
     public String getCurrentAddress() {
 
         return getAddressForIndex(this.hdIndex);
+    }
+
+    public int getINDEX_RANGE() {
+        return INDEX_RANGE;
+    }
+
+    public int getSCAN_SIZE() {
+        return SCAN_SIZE;
+    }
+
+    public int getSCAN_RANGE() {
+        return SCAN_RANGE;
+    }
+
+    public Types.ChainAlias getChainId() {
+        return chainId;
+    }
+
+    public void setChainId(Types.ChainAlias chainId) {
+        this.chainId = chainId;
+    }
+
+    public KeyChain getKeyChain() {
+        return keyChain;
+    }
+
+    public void setKeyChain(KeyChain keyChain) {
+        this.keyChain = keyChain;
+    }
+
+    public int getHdIndex() {
+        return hdIndex;
+    }
+
+    public void setHdIndex(int hdIndex) {
+        this.hdIndex = hdIndex;
+    }
+
+    public HDKey getMasterKey() {
+        return masterKey;
+    }
+
+    public void setMasterKey(HDKey masterKey) {
+        this.masterKey = masterKey;
+    }
+
+    public String getChangePath() {
+        return changePath;
+    }
+
+    public void setChangePath(String changePath) {
+        this.changePath = changePath;
+    }
+
+    public KeyPair getAvmAddrFactory() {
+        return avmAddrFactory;
+    }
+
+    public void setAvmAddrFactory(KeyPair avmAddrFactory) {
+        this.avmAddrFactory = avmAddrFactory;
+    }
+
+    public UTXOSet getUtxoSet() {
+        return utxoSet;
+    }
+
+    public void setUtxoSet(UTXOSet utxoSet) {
+        this.utxoSet = utxoSet;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
+    }
+
+    public boolean isFetchUtxo() {
+        return isFetchUtxo;
+    }
+
+    public void setFetchUtxo(boolean fetchUtxo) {
+        isFetchUtxo = fetchUtxo;
+    }
+
+    public boolean isInit() {
+        return isInit;
+    }
+
+    public void setInit(boolean init) {
+        isInit = init;
     }
 }

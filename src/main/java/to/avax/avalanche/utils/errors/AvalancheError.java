@@ -11,11 +11,6 @@
 
 package to.avax.avalanche.utils.errors;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class AvalancheError extends RuntimeException{
 
     public static final String  ADDRESS_ERROR_CODE = "1000";
@@ -69,5 +64,13 @@ public class AvalancheError extends RuntimeException{
     public AvalancheError(String m, String code) {
         super(m);
         this.errorCode = code;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
     }
 }
